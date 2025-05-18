@@ -9,11 +9,11 @@ const equal = document.querySelector(".calc__key--equal");
 let result = 0;
 
 function displayContent() {
+
     // show numbers on display
     numbers.forEach((key) => {
         key.addEventListener("click", () => {
             display.textContent += key.innerHTML;
-            console.log(key);
         })
     })
     //clear key
@@ -24,18 +24,40 @@ function displayContent() {
     backspace.addEventListener("click", () => {
         deleteContent();
     })
-    // show operator keys
+    //operator keys
     operators.forEach((key) => {
         key.addEventListener("click", () => {
             // get last character
             const last = display.textContent.slice(-1);
-            // if display is not  clear and last character is not an operator
-            if (display.textContent !== "" && key.textContent !== last ) {
+            // if display is not clear and last character is not an operator
+            if (display.textContent !== "" && key.textContent !== last) {
                 display.textContent += key.innerHTML;
             }
 
+
         })
     })
+
+    // prefix key
+    // todo: fix multiple instances
+    prefix.addEventListener("click", () => {
+
+        if (display.textContent !== " " && display.textContent.slice(0) !== "-") {
+            display.textContent = "-" + display.textContent
+        }
+    })
+
+    // decimal key
+    // todo: fix decimal point
+    decimal.addEventListener("click", () => {
+
+        if (display.textContent.slice(-1) !== decimal.textContent && !(display.textContent.includes("."))) {
+            display.textContent += decimal.textContent;
+            console.log(number)
+        }
+    })
+
+
 }
 
 function clearDisplay() {
