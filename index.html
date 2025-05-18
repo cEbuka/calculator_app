@@ -10,8 +10,8 @@
     <main class="calc">
       <section class="calc__display"></section>
       <section class="calc__keys">
-        <button class="calc__key calc__key--function" type="button">Clr</button>
-        <button class="calc__key calc__key--function" type="button">Del</button>
+        <button class="calc__key calc__key--function calc__key--clear" type="button">Clr</button>
+        <button class="calc__key calc__key--function calc__key--delete" type="button">Del</button>
         <button class="calc__key calc__key--operator" type="button">%</button>
         <button class="calc__key calc__key--operator" type="button">+</button>
 
@@ -30,11 +30,12 @@
         <button class="calc__key calc__key--number" type="button">3</button>
         <button class="calc__key calc__key--operator" type="button">*</button>
 
-        <button class="calc__key calc__key--function" type="button">+/-</button>
+        <button class="calc__key calc__key--function calc__key--prefix" type="button">+/-</button>
         <button class="calc__key calc__key--number" type="button">0</button>
-        <button class="calc__key calc__key--number" type="button">.</button>
+        <button class="calc__key calc__key--number calc__key--decimal" type="button">.</button>
         <button class="calc__key calc__key--equal" type="button">=</button>
       </section>
     </main>
+    <script src="index.js"></script>
   </body>
 </html>
