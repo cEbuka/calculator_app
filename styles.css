@@ -49,6 +49,7 @@ body {
     justify-content: flex-end;
     padding-right: 10px;
     font-size: var(--font-size-lg);
+    text-align: right;
 }
 
 .calc__keys {
@@ -77,4 +78,8 @@ body {
 
 .calc__key:focus {
     outline: 1px solid var(--color-white);
+}
+
+.calc__key--operator {
+    background-color: var(--color-warning);
 }
