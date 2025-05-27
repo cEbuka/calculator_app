@@ -6,10 +6,12 @@ const decimal = document.querySelector(".calc__key--decimal");
 const operators = document.querySelectorAll(".calc__key--operator");
 let display = document.querySelector(".calc__display");
 const equal = document.querySelector(".calc__key--equal");
-let result = 0;
 
 function displayContent() {
 
+    // if (display.value.length > 10) {
+    //     display.value = display.value.slice(0, 10);
+    // }
     // show numbers on display
     numbers.forEach((key) => {
         key.addEventListener("click", () => {
@@ -28,13 +30,22 @@ function displayContent() {
     //operator keys
     operators.forEach((key) => {
         key.addEventListener("click", () => {
+            const symbols = [];
+            const operator = key.textContent;
             // get last character
             const last = display.value.slice(-1);
-            // if display is not clear and last character is not an operator
-            if (display.value !== "" && key.textContent !== last) {
-                display.value += key.innerHTML;
-            }
+            operators.forEach(op => symbols.push(op.textContent))
 
+            if (symbols.includes(last)) {
+                display.value = display.value.slice(0, -1) + operator;
+            }
+            else if (display.value === "") {
+                display.value = "";
+            }
+            // if the last character is not an operator, append the operator
+            else {
+                display.value += operator;
+            }
 
         })
     })
@@ -77,6 +88,9 @@ function displayContent() {
     })
 
 
+    // equals key
+    equal.addEventListener("click", () => displayResults(display.value))
+
 }
 
 function clearDisplay() {
@@ -87,5 +101,22 @@ function deleteContent() {
     display.value = display.value.slice(0, -1);
 
 }
+
+function displayResults(contents) {
+
+    try {
+        const value = contents.trim();
+        const result = math.evaluate(value);
+        display.value = result;
+    } catch (error) {
+        display.value = "Error";
+        console.error("Invalid expression: ", error);
+        return;
+    }
+
+
+
+}
+
 
 displayContent();
