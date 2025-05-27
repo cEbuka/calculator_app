@@ -9,9 +9,7 @@ const equal = document.querySelector(".calc__key--equal");
 
 function displayContent() {
 
-    // if (display.value.length > 10) {
-    //     display.value = display.value.slice(0, 10);
-    // }
+    // todo: check input limit
     // show numbers on display
     numbers.forEach((key) => {
         key.addEventListener("click", () => {

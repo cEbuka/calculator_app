@@ -77,12 +77,8 @@ body {
   outline: 1px solid var(--color-white);
 }
 
-.calc__key--operator {
-  background-color: var(--color-warning);
-}
-
+.calc__key--operator,
 .calc__key--clear,
 .calc__key--delete {
-  background-color: var(--color-danger);
-  opacity: 0.8;
+  background-color: var(--color-warning);
 }
